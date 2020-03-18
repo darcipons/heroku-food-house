@@ -1,0 +1,10 @@
+.card.dish {
+    float: left;
+    max-width: 10rem;
+    height: 20rem;
+    margin: 0.5rem;
+    overflow: hidden;
+    background-color: #C6DCEC;
+    color: black;
+  }
+ 

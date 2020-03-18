@@ -1,0 +1,17 @@
+.navbar {
+  background-color: #89d0ff;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 7px -1px;
+}
+
+ul.navbar-nav.mr-auto {
+  align-items: center;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: black;
+}
+
+.footer {
+  background-color: white;
+}

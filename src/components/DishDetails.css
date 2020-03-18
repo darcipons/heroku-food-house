@@ -1,0 +1,16 @@
+.card.mb-3.dish-details {
+  margin: 0 7rem;
+  background-color: #C6DCEC;
+}
+
+.card-title.dish-details {
+  font-size: 50px;
+}
+
+.card-text.dish-details-cat {
+  font-size: 35px;
+}
+
+.card-text.dish-details {
+  font-size: 20px;
+}

@@ -17,16 +17,21 @@ const RandomRecipe = () => {
     getRandom();
   }, []);
 
-  console.log(random)
 
   return (
-    <div className='card mb-3 random'>
-      <h1 className='card-title'>{random.meals.strMeal}</h1>
-      <p className='card-subtitle'>Category: {random.meals.strCategory}</p>
-      <img src={random.meals.strMealThumb} alt='random.meals.strMeal' className='card-img-top'></img>
-      <div className='card-body'>
-        <p className='card-text'>{random.meals.strInstructions}</p>
+    <div className="card mb-3 dish-details">
+    <div className="row no-gutters">
+      <div className="col-md-4">
+        <img src={random.meals.strMealThumb} alt='random recipe' className="card-img"/>
       </div>
+      <div className="col-md-8">
+        <div className="card-body">
+          <h5 className="card-title dish-details">{random.meals.strMeal}</h5>
+          <p className="card-text dish-details-cat">Category: {random.meals.strCategory}</p>
+          <p className="card-text dish-details">{random.meals.strInstructions}</p>
+        </div>
+      </div>
+    </div>
     </div>
   )
 }

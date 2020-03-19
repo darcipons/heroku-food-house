@@ -1,0 +1,20 @@
+div .carousel.slide {
+  height: 40vh;
+  overflow: hidden;
+  margin: 0 0;
+}
+
+.about {
+  font-size: 60px;
+  text-align: center;
+  padding: 2rem 0;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.about-description {
+  text-align: center;
+  font-size: 25px;
+  margin: 0 10rem;
+  
+}
+

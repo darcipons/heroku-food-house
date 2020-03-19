@@ -1,61 +1,51 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './About.css'
 
-const About = props => {
+const About = () => {
 
     const [photo, setPhoto] = useState({ meals: [] })
 
     const getPhoto = async () => {
       const { data } = await axios(
-        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${props.match.params.id}`
+        `https://www.themealdb.com/api/json/v1/1/random.php`
       );
-      setPhoto({ meals: data.meals });
+      setPhoto({ meals: data.meals[0] });
     };
 
     useEffect(() => {
       getPhoto();
-    }, []);
+    }, [photo[0]]);
 
     console.log(photo)
 
     return (
-      <div id="carouselExampleCaptions" className="carousel slide" data-ride="carousel">
-      <ul className="carousel-indicators">
-        <li data-target="#carouselExampleCaptions" data-slide-to="0" className="active"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-      </ul>
-      <div className="carousel-inner">
-        <div className="carousel-item active">
-          <img src={photo.meal[0].strMealThumb} alt={photo.meal.strMeal} className="d-block w-100"/>
-          <div className="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      <div>
+        <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+          <div className="carousel-inner">
+            <div class="carousel-item active">
+            <img src={photo.meals.strMealThumb} alt={photo.meals.strMeal} className="d-block w-100"></img>
+            </div>
+            <div className="carousel-item">
+            <img src={photo.meals.strMealThumb} alt={photo.meals.strMeal} className="d-block w-100"></img>
+            </div>
+            <div className="carousel-item">
+            <img src={photo.meals.strMealThumb} alt={photo.meals.strMeal} className="d-block w-100"></img>
+            </div>
           </div>
+          <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="sr-only">Previous</span>
+          </a>
+          <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="sr-only">Next</span>
+          </a>
         </div>
-        <div className="carousel-item">
-          <img src="..." class="d-block w-100" alt="..."/>
-          <div className="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
+
+        <div className='about'>Food House</div>
+        <div className='about-description'>Food House was created during a part-time Front-End Development Course at Wyncode Academy. It uses the mealAPI to access recipes. The User can search for their favorite meals by category. They can also access a random recipe, that changes each time the page is visited or refreshed. Food House was styled using Bootstrap components and CSS.
         </div>
-        <div className="carousel-item">
-          <img src="..." className="d-block w-100" alt="..."/>
-          <div className="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-          </div>
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="sr-only">Previous</span>
-      </a>
-      <a className="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="sr-only">Next</span>
-      </a>
     </div>
     )
 }

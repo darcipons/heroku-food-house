@@ -13,6 +13,7 @@ import RandomRecipe from './components/RandomRecipe';
 import About from './components/About';
 import DishDetails from './components/DishDetails';
 import Header from './components/Header'
+import Footer from './components/Footer'
 // import Area from './components/Area'
 import './FoodHouse.css'
 
@@ -74,9 +75,7 @@ const FoodHouse = () => {
          </Route>
        </Switch> 
 
-        <footer className='footer'>
-          <div>Copyright</div>
-        </footer>  
+        <Footer/> 
       </div>
     </Router>
   );

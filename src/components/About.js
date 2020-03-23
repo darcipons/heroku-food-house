@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Carousel  from 'react-bootstrap/Carousel'
+import Accordion from 'react-bootstrap/Accordion'
+import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
 import axios from 'axios';
 import './About.css'
 
@@ -38,68 +41,67 @@ const About = () => {
 
     return (
       <div>
+        {/* Carousel for API random pictures of food */}
+        <Carousel>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={photo.meals.strMealThumb} alt={photo.meals.strMeal}
+            />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={photo2.meals.strMealThumb} alt={photo2.meals.strMeal}
+            />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={photo3.meals.strMealThumb} alt={photo3.meals.strMeal}
+            />
+          </Carousel.Item>
+        </Carousel>
 
-      <Carousel>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={photo.meals.strMealThumb} alt={photo.meals.strMeal}
-          />
-          <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={photo2.meals.strMealThumb} alt={photo2.meals.strMeal}
-          />
-
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={photo3.meals.strMealThumb} alt={photo3.meals.strMeal}
-          />
-
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
-
-        {/* <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-          <div className="carousel-inner">
-            <div class="carousel-item active">
-            <img src={photo.meals.strMealThumb} alt={photo.meals.strMeal} className="d-block w-100"></img>
-            </div>
-            <div className="carousel-item">
-            <img src={photo.meals.strMealThumb} alt={photo.meals.strMeal} className="d-block w-100"></img>
-            </div>
-            <div className="carousel-item">
-            <img src={photo.meals.strMealThumb} alt={photo.meals.strMeal} className="d-block w-100"></img>
-            </div>
-          </div>
-          <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="sr-only">Previous</span>
-          </a>
-          <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="sr-only">Next</span>
-          </a>
-        </div> */}
-
+        {/* About food house description */}
         <div className='about'>Food House</div>
         <div className='about-description'>Food House was created during a part-time Front-End Development Course at Wyncode Academy. It uses the mealAPI to access recipes. The User can search for their favorite meals by category. They can also access a random recipe, that changes each time the page is visited or refreshed. Food House was styled using Bootstrap components and CSS.
         </div>
-    </div>
+
+        {/* Accordian for questions/answers about food house */}
+        <Accordion>
+          <Card id='card-about'>
+            <Card.Header>
+              <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                How was Food House created?
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>Food House was created using Javascript, React, HTML, CSS, and Bootstrap</Card.Body>
+            </Accordion.Collapse>
+          </Card>
+          <Card id='card-about'>
+            <Card.Header>
+              <Accordion.Toggle as={Button} variant="link" eventKey="1">
+                What API was used in Food House?
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="1">
+              <Card.Body>https://www.themealdb.com/api.php</Card.Body>
+            </Accordion.Collapse>
+          </Card>
+          <Card id='card-about'>
+            <Card.Header>
+              <Accordion.Toggle as={Button} variant="link" eventKey="2">
+                Are these real recipes?
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="2">
+              <Card.Body>Yes, these are recipes from our best inhouse chefs.</Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+      </div>
     )
 }
 export default About;

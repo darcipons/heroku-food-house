@@ -15,6 +15,14 @@ div .carousel.slide {
   text-align: center;
   font-size: 25px;
   margin: 0 10rem;
-  
 }
 
+#card-about {
+  margin: 2rem 40rem;
+  background-color: lightblue;
+  color: black;
+}
+
+.btn-link {
+  color: black;
+}

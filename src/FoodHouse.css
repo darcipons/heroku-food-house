@@ -11,3 +11,11 @@ ul.navbar-nav.mr-auto {
 .navbar-light .navbar-nav .nav-link {
   color: black;
 }
+
+.search-bar {
+  margin-right: 3rem;
+}
+
+.cooking-icon {
+  width: 12%;
+}

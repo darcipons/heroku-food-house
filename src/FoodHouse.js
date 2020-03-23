@@ -14,7 +14,7 @@ import About from './components/About';
 import DishDetails from './components/DishDetails';
 import Header from './components/Header'
 import Footer from './components/Footer'
-// import Area from './components/Area'
+import Icon from '../src/icon.png'
 import './FoodHouse.css'
 
 
@@ -33,13 +33,15 @@ const FoodHouse = () => {
   useEffect(() => {
     fetchData();
   }, [search]);
-  console.log(data);
  
   return (
     <Router>
       <div>
         <nav className='navbar navbar-expand-lg navbar-light'>
           <ul className='navbar-nav mr-auto'>
+            <li className='nav-item'>
+              <img src={Icon} alt='cooking image' className='cooking-icon'></img>
+            </li>
             <li className='nav-item'>
               <Link to="/" className='nav-link' style={{fontSize: '20px'}}>Home</Link>
             </li>
@@ -49,10 +51,10 @@ const FoodHouse = () => {
             <li className='nav-item'>
               <Link to="/random" className='nav-link' style={{fontSize: '20px'}}>Recipe of the Day</Link>
             </li>
-            <li>
-            <SearchForm setSearch={setSearch} initialPlaceholder={search} />
-            </li>
           </ul>
+          <form className="form-inline my-2 my-lg-0 search-bar">
+            <SearchForm setSearch={setSearch} initialPlaceholder={search} />
+          </form>
         </nav>
 
         <Switch>
@@ -75,7 +77,7 @@ const FoodHouse = () => {
          </Route>
        </Switch> 
 
-        <Footer/> 
+        {/* <Footer/>  */}
       </div>
     </Router>
   );
